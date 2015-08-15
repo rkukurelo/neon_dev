@@ -1,0 +1,2360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="Neon Admin Panel" />
+	<meta name="author" content="" />
+	
+	<title>Neon | Desarrollo del Producto</title>
+
+	<link rel="stylesheet" href="assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
+	<link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/neon-core.css">
+	<link rel="stylesheet" href="assets/css/neon-theme.css">
+	<link rel="stylesheet" href="assets/css/neon-forms.css">
+	<link rel="stylesheet" href="assets/css/custom.css">
+        
+	<script src="assets/js/jquery-1.11.0.min.js"></script>
+
+	<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+        
+        <script type="text/javascript">
+            
+function slctr(texto,valor){
+	this.texto = texto
+	this.valor = valor
+}
+var plano=new Array()
+	plano[0] = new slctr('- -Tejido Plano- -')
+        plano[1] = new slctr("Tejido Plano Drill Color")
+        plano[2] = new slctr("Tejido Plano Dril PPT")
+        plano[3] = new slctr("Tejido Plano Canvas color")
+        plano[4] = new slctr("Tejido Plano Canvas PPT")
+        plano[5] = new slctr("Tejido Plano Camisero Listado")
+        plano[6] = new slctr("Tejido Plano Camisero Cuadros")
+        plano[7] = new slctr("Tejido Plano Camisero llano")
+        plano[8] = new slctr("Tejido Plano Denim")
+        plano[9] = new slctr("Tejido Plano Denim Stretch")
+        plano[10] = new slctr("Tejido Plano Corduroy")
+        plano[11] = new slctr("Tejido Plano Poliseda")
+        plano[12] = new slctr("Tejido Plano Raso")
+        plano[13] = new slctr("Tejido Plano Lanilla")
+        plano[14] = new slctr("Tejido Plano Gabardina")
+        plano[15] = new slctr("Tejido Plano Bramante")
+        plano[16] = new slctr("Tejido Plano Tocuyo")
+        plano[17] = new slctr("Tejido Plano Satin")
+        plano[18] = new slctr("Tejido Plano Tejido recubierto")
+
+var punto=new Array()
+	punto[0] = new slctr('- -Tejido Punto- -')
+        punto[1] = new slctr("Tejido Punto Jersey Lycra")
+        punto[2] = new slctr("Tejido Punto Jersey Listado")
+        punto[3] = new slctr("Tejido Punto Jersey Lijado")
+        punto[4] = new slctr("Tejido Punto Jersey Melange")
+        punto[5] = new slctr("Tejido Punto Jersey Devoré")
+        punto[6] = new slctr("Tejido Punto Jersey Jacquard")
+        punto[7] = new slctr("Tejido Punto Suplex")
+        punto[8] = new slctr("Tejido Punto Gamusa")
+        punto[9] = new slctr("Tejido Punto Gamusa Listada")
+        punto[10] = new slctr("Tejido Punto Franela")
+        punto[11] = new slctr("Tejido Punto Franela Melange")
+        punto[12] = new slctr("Tejido Punto Fresch Terry")
+        punto[13] = new slctr("Tejido Punto Rib")
+        punto[14] = new slctr("Tejido Punto Rib Melange")
+        punto[15] = new slctr("Tejido Punto Rib Jacquard")
+        punto[16] = new slctr("Tejido Punto Pique")
+        punto[17] = new slctr("Tejido Punto Pique Listado")
+        punto[18] = new slctr("Tejido Punto Cuellos")
+        punto[19] = new slctr("Tejido Punto Puños")
+        punto[20] = new slctr("Tejido Punto Malla Raschel")
+        punto[21] = new slctr("Tejido Punto Hidrosedal")
+
+
+function slctryole(cual,donde){
+	if(cual.selectedIndex !== 0)
+        {
+		donde.length=0
+		cual = eval(cual.value)
+		for(m=0;m<cual.length;m++)
+                {
+			var nuevaOpcion = new Option(cual[m].texto);
+			donde.options[m] = nuevaOpcion;
+			if(cual[m].valor !== null)
+                        {
+				donde.options[m].value = cual[m].valor;
+			}
+			else{
+				donde.options[m].value = cual[m].texto;
+			}
+		}
+	}
+}
+
+
+function sumar()
+{
+            var cantidad1 =parseFloat(document.getElementById("cantidad").value);
+
+var numero11 = parseFloat(document.form1.sum13.value);
+var numero12 = parseFloat(document.form1.sum14.value);
+var numero13 = parseFloat(document.form1.sum15.value);
+var numero14 = parseFloat(document.form1.sum16.value);
+var numero15 = parseFloat(document.form1.sum17.value);
+var numero16 = parseFloat(document.form1.sum18.value);
+var numero17 = parseFloat(document.form1.sum19.value);
+
+var numero21 = parseFloat(document.form1.sum23.value);
+var numero22 = parseFloat(document.form1.sum24.value);
+var numero23 = parseFloat(document.form1.sum25.value);
+var numero24 = parseFloat(document.form1.sum26.value);
+var numero25 = parseFloat(document.form1.sum27.value);
+var numero26 = parseFloat(document.form1.sum28.value);
+var numero27 = parseFloat(document.form1.sum29.value);
+
+var Resultado1 = numero11 + numero21;
+var Resultado2 = numero12 + numero22;
+var Resultado3 = numero13 + numero23;
+var Resultado4 = numero14 + numero24;
+var Resultado5 = numero15 + numero25;
+var Resultado6 = numero16 + numero26;
+var Resultado7 = numero17 + numero27;
+
+var ratio = Resultado1 + Resultado2 + Resultado3 + Resultado4 + Resultado5 + Resultado6 + Resultado7;
+
+document.form1.res1.value= ratio;
+document.form1.res2.value= cantidad1;
+document.form1.res3.value= Resultado1;
+document.form1.res4.value= Resultado2;
+document.form1.res5.value= Resultado3;
+document.form1.res6.value= Resultado4;
+document.form1.res7.value= Resultado5;
+document.form1.res8.value= Resultado6;
+document.form1.res9.value= Resultado7;
+
+document.form1.rat1.value= ratio;
+document.form1.rat2.value= cantidad1/(ratio);
+document.form1.rat3.value= (cantidad1/(ratio))*1.05;
+document.form1.rat4.value= ((cantidad1/(ratio))*1.05).toFixed();
+
+document.form1.sumrat13.value= numero11*((cantidad1/(ratio))*1.05).toFixed();
+document.form1.sumrat14.value= numero12*((cantidad1/(ratio))*1.05).toFixed();
+document.form1.sumrat15.value= numero13*((cantidad1/(ratio))*1.05).toFixed();
+document.form1.sumrat16.value= numero14*((cantidad1/(ratio))*1.05).toFixed();
+document.form1.sumrat17.value= numero15*((cantidad1/(ratio))*1.05).toFixed();
+document.form1.sumrat18.value= numero16*((cantidad1/(ratio))*1.05).toFixed();
+document.form1.sumrat19.value= numero17*((cantidad1/(ratio))*1.05).toFixed();
+
+document.form1.sumrat23.value= numero21*((cantidad1/(ratio))*1.05).toFixed();
+document.form1.sumrat24.value= numero22*((cantidad1/(ratio))*1.05).toFixed();
+document.form1.sumrat25.value= numero23*((cantidad1/(ratio))*1.05).toFixed();
+document.form1.sumrat26.value= numero24*((cantidad1/(ratio))*1.05).toFixed();
+document.form1.sumrat27.value= numero25*((cantidad1/(ratio))*1.05).toFixed();
+document.form1.sumrat28.value= numero26*((cantidad1/(ratio))*1.05).toFixed();
+document.form1.sumrat29.value= numero27*((cantidad1/(ratio))*1.05).toFixed();
+
+var resratx1 = numero11*((cantidad1/(ratio))*1.05).toFixed() + numero21*((cantidad1/(ratio))*1.05).toFixed();
+var resratx2 = numero12*((cantidad1/(ratio))*1.05).toFixed() + numero22*((cantidad1/(ratio))*1.05).toFixed();
+var resratx3 = numero13*((cantidad1/(ratio))*1.05).toFixed() + numero23*((cantidad1/(ratio))*1.05).toFixed();
+var resratx4 = numero14*((cantidad1/(ratio))*1.05).toFixed() + numero24*((cantidad1/(ratio))*1.05).toFixed();
+var resratx5 = numero15*((cantidad1/(ratio))*1.05).toFixed() + numero25*((cantidad1/(ratio))*1.05).toFixed();
+var resratx6 = numero16*((cantidad1/(ratio))*1.05).toFixed() + numero26*((cantidad1/(ratio))*1.05).toFixed();
+var resratx7 = numero17*((cantidad1/(ratio))*1.05).toFixed() + numero27*((cantidad1/(ratio))*1.05).toFixed();
+
+document.form1.resrat3.value= resratx1;
+document.form1.resrat4.value= resratx2;
+document.form1.resrat5.value= resratx3;
+document.form1.resrat6.value= resratx4;
+document.form1.resrat7.value= resratx5;
+document.form1.resrat8.value= resratx6;
+document.form1.resrat9.value= resratx7;
+
+var excedenteratio = resratx1 + resratx2 + resratx3 + resratx4 + resratx5 + resratx6 + resratx7;
+document.form1.resrat10.value = excedenteratio;
+
+}
+
+function restarPorcentaje()
+{
+    var numero111 = parseFloat(document.form1.resta1.value);
+    var ResultadoResta = 100 - numero111;
+    document.form1.rest111.value= ResultadoResta;
+   
+}
+
+function capturar()
+    {
+        // Obtenemos el valor por el id
+        var producto1 =document.getElementById("selectproducto").value;
+        var genero1 =document.getElementById("selectgenero").value;
+        var cantidad1 =parseFloat(document.getElementById("cantidad").value);
+ 
+        document.getElementById("resultado24").innerHTML=" \
+            <br>Producto: "+producto1+" | Genero: "+genero1+" | Cantidad: "+cantidad1;
+
+    }
+</script>
+	
+</head>
+<body class="page-body" data-url="http://neon.dev">
+
+<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->	
+	
+	<div class="sidebar-menu">
+		
+			
+		<header class="logo-env">
+			
+			<!-- logo -->
+			<div class="logo">
+				<a href="index.html">
+					<img src="assets/images/logo@2x.png" width="120" alt="" />
+				</a>
+			</div>
+			
+						<!-- logo collapse icon -->
+						
+			<div class="sidebar-collapse">
+				<a href="#" class="sidebar-collapse-icon with-animation"><!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
+					<i class="entypo-menu"></i>
+				</a>
+			</div>
+			
+									
+			
+			<!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
+			<div class="sidebar-mobile-menu visible-xs">
+				<a href="#" class="with-animation"><!-- add class "with-animation" to support animation -->
+					<i class="entypo-menu"></i>
+				</a>
+			</div>
+			
+		</header>
+				
+		
+		
+				
+		
+				
+		<ul id="main-menu" class="">
+			<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+			<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+			<!-- Search Bar -->
+			<li id="search">
+				<form method="get" action="">
+					<input type="text" name="q" class="search-input" placeholder="Buscar..."/>
+					<button type="submit">
+						<i class="entypo-search"></i>
+					</button>
+				</form>
+			</li>
+			<li>
+				<a href="index.html">
+					<i class="entypo-gauge"></i>
+					<span>Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="layout-api.html">
+					<i class="entypo-layout"></i>
+					<span>Diseños</span>
+				</a>
+				<ul>
+					<li>
+						<a href="layout-api.html">
+							<span>Layout API</span>
+						</a>
+					</li>
+					<li>
+						<a href="layout-collapsed-sidebar.html">
+							<span>Collapsed Sidebar</span>
+						</a>
+					</li>
+					<li>
+						<a href="layout-fixed-sidebar.html">
+							<span>Fixed Sidebar</span>
+						</a>
+					</li>
+					<li>
+						<a href="layout-chat-open.html">
+							<span>Chat Open</span>
+						</a>
+					</li>
+					<li>
+						<a href="layout-horizontal-menu-boxed.html">
+							<span>Horizontal Menu Boxed</span>
+						</a>
+					</li>
+					<li>
+						<a href="layout-horizontal-menu-fluid.html">
+							<span>Horizontal Menu Fluid</span>
+						</a>
+					</li>
+					<li>
+						<a href="layout-mixed-menus.html">
+							<span>Mixed Menus</span>
+						</a>
+					</li>
+					<li>
+						<a href="layout-right-sidebar.html">
+							<span>Right Sidebar</span>
+						</a>
+					</li>
+					<li>
+						<a href="layout-both-menus-right-sidebar.html">
+							<span>Both Menus (Right Sidebar)</span>
+						</a>
+					</li>
+					<li>
+						<a href="layout-page-transition-fade.html">
+							<span>Page Enter Transitions</span>
+						</a>
+						<ul>
+							<li>
+								<a href="layout-page-transition-fade.html">
+									<span>Fade Scale</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-page-transition-left-in.html">
+									<span>Left In</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-page-transition-right-in.html">
+									<span>Right In</span>
+								</a>
+							</li>
+							<li>
+								<a href="layout-page-transition-fade-only.html">
+									<span>Fade Only</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="layout-boxed.html">
+							<span>Boxed Layout</span>
+							<span class="badge badge-secondary badge-roundless">New</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="index.html" target="_blank">
+					<i class="entypo-monitor"></i>
+					<span>Presentación</span>
+				</a>
+			</li>
+			<li>
+				<a href="ui-panels.html">
+					<i class="entypo-newspaper"></i>
+					<span>Elementos de UI</span>
+				</a>
+				<ul>
+					<li>
+						<a href="ui-panels.html">
+							<span>Panels</span>
+						</a>
+					</li>
+					<li>
+						<a href="ui-tiles.html">
+							<span>Tiles</span>
+						</a>
+					</li>
+					<li>
+						<a href="forms-buttons.html">
+							<span>Buttons</span>
+						</a>
+					</li>
+					<li>
+						<a href="ui-typography.html">
+							<span>Typography</span>
+						</a>
+					</li>
+					<li>
+						<a href="ui-tabs-accordions.html">
+							<span>Tabs &amp; Accordions</span>
+						</a>
+					</li>
+					<li>
+						<a href="ui-tooltips-popovers.html">
+							<span>Tooltips &amp; Popovers</span>
+						</a>
+					</li>
+					<li>
+						<a href="ui-navbars.html">
+							<span>Navbars</span>
+						</a>
+					</li>
+					<li>
+						<a href="ui-breadcrumbs.html">
+							<span>Breadcrumbs</span>
+						</a>
+					</li>
+					<li>
+						<a href="ui-badges-labels.html">
+							<span>Badges &amp; Labels</span>
+						</a>
+					</li>
+					<li>
+						<a href="ui-progress-bars.html">
+							<span>Progress Bars</span>
+						</a>
+					</li>
+					<li>
+						<a href="ui-modals.html">
+							<span>Modals</span>
+						</a>
+					</li>
+					<li>
+						<a href="ui-blockquotes.html">
+							<span>Blockquotes</span>
+						</a>
+					</li>
+					<li>
+						<a href="ui-alerts.html">
+							<span>Alerts</span>
+						</a>
+					</li>
+					<li>
+						<a href="ui-pagination.html">
+							<span>Pagination</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="mailbox.html">
+					<i class="entypo-mail"></i>
+					<span>Buzón</span>
+					<span class="badge badge-secondary">8</span>
+				</a>
+				<ul>
+					<li>
+						<a href="mailbox.html">
+							<i class="entypo-Bandeja"></i>
+							<span>Bandeja</span>
+						</a>
+					</li>
+					<li>
+						<a href="mailbox-compose.html">
+							<i class="entypo-pencil"></i>
+							<span>Enviar Mensaje</span>
+						</a>
+					</li>
+					<li>
+						<a href="mailbox-message.html">
+							<i class="entypo-attach"></i>
+							<span>Ver Mensaje</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="forms-main.html">
+					<i class="entypo-doc-text"></i>
+					<span>Formularios</span>
+				</a>
+				<ul>
+					<li>
+						<a href="forms-main.html">
+							<span>Basic Elements</span>
+						</a>
+					</li>
+					<li>
+						<a href="forms-advanced.html">
+							<span>Advanced Plugins</span>
+						</a>
+					</li>
+					<li>
+						<a href="forms-wizard.html">
+							<span>Form Wizard</span>
+						</a>
+					</li>
+					<li>
+						<a href="forms-validation.html">
+							<span>Data Validation</span>
+						</a>
+					</li>
+					<li>
+						<a href="forms-masks.html">
+							<span>Input Masks</span>
+						</a>
+					</li>
+					<li>
+						<a href="forms-sliders.html">
+							<span>Sliders</span>
+						</a>
+					</li>
+					<li>
+						<a href="forms-file-upload.html">
+							<span>File Upload</span>
+						</a>
+					</li>
+					<li>
+						<a href="forms-wysiwyg.html">
+							<span>Editors</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="tables-main.html">
+					<i class="entypo-window"></i>
+					<span>Reportes</span>
+				</a>
+				<ul>
+					<li>
+						<a href="tables-main.html">
+							<span>Reportes Básicos</span>
+						</a>
+					</li>
+					<li>
+						<a href="tables-datatable.html">
+							<span>Reportes Avanzados</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="extra-icons.html">
+					<i class="entypo-bag"></i>
+					<span>Extra</span>
+					<span class="badge badge-info badge-roundless">New Items</span>
+				</a>
+				<ul>
+					<li>
+						<a href="extra-icons.html">
+							<span>Icons</span>
+							<span class="badge badge-success">3</span>
+						</a>
+						<ul>
+							<li>
+								<a href="extra-icons.html">
+									<span>Font Awesome</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-icons-entypo.html">
+									<span>Entypo</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-icons-glyphicons.html">
+									<span>Glyph Icons</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="extra-portlets.html">
+							<span>Portlets</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-google-maps.html">
+							<span>Maps</span>
+						</a>
+						<ul>
+							<li>
+								<a href="extra-google-maps.html">
+									<span>Google Maps</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-vector-maps.html">
+									<span>Vector Maps</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="extra-chat-api.html">
+							<span>Chat API</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-calendar.html">
+							<span>calendar</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-notes.html">
+							<span>Notes</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-lockscreen.html">
+							<span>Lockscreen</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-login.html">
+							<span>Login</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-register.html">
+							<span>Register</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-invoice.html">
+							<span>Invoice</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-members.html">
+							<span>Members</span>
+							<span class="badge badge-secondary badge-roundless">New</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-gallery.html">
+							<span>Gallery</span>
+						</a>
+						<ul>
+							<li>
+								<a href="extra-gallery.html">
+									<span>Albums</span>
+								</a>
+							</li>
+							<li>
+								<a href="extra-gallery-single.html">
+									<span>Single Album</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="extra-profile.html">
+							<span>Perfil</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-404.html">
+							<span>404 Page</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-blank-page.html">
+							<span>Blank Page</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-timeline.html">
+							<span>Timeline</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-comments.html">
+							<span>Comments</span>
+							<span class="badge badge-secondary badge-roundless">New</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-timeline-centered.html">
+							<span>Timeline Centered</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-tocify.html">
+							<span>Tocify</span>
+						</a>
+					</li>
+					<li>
+						<a href="ui-notifications.html">
+							<span>Notifications</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-new-post.html">
+							<span>New Post</span>
+							<span class="badge badge-secondary badge-roundless">New</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-settings.html">
+							<span>Settings</span>
+							<span class="badge badge-secondary badge-roundless">New</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-scrollbox.html">
+							<span>Scrollbox</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-image-crop.html">
+							<span>Image Crop</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-search.html">
+							<span>Search Page</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-language-selector.html">
+							<span>Language Selector</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-nestable.html">
+							<span>Nestable Lists</span>
+							<span class="badge badge-secondary badge-roundless">New</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-file-tree.html">
+							<span>File Tree</span>
+							<span class="badge badge-secondary badge-roundless">New</span>
+						</a>
+					</li>
+					<li>
+						<a href="extra-load-progress.html">
+							<span>Load Progress</span>
+							<span class="badge badge-secondary badge-roundless">New</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="charts.html">
+					<i class="entypo-chart-bar"></i>
+					<span>Charts</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class="entypo-flow-tree"></i>
+					<span>Menu Levels</span>
+				</a>
+				<ul>
+					<li>
+						<a href="#">
+							<i class="entypo-flow-line"></i>
+							<span>Menu Level 1.1</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<i class="entypo-flow-line"></i>
+							<span>Menu Level 1.2</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<i class="entypo-flow-line"></i>
+							<span>Menu Level 1.3</span>
+						</a>
+						<ul>
+							<li>
+								<a href="#">
+									<i class="entypo-flow-parallel"></i>
+									<span>Menu Level 2.1</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<i class="entypo-flow-parallel"></i>
+									<span>Menu Level 2.2</span>
+								</a>
+								<ul>
+									<li>
+										<a href="#">
+											<i class="entypo-flow-cascade"></i>
+											<span>Menu Level 3.1</span>
+										</a>
+										<ul>
+											<li>
+												<a href="#">
+													<i class="entypo-flow-branch"></i>
+													<span>Menu Level 4.1</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a href="#">
+											<i class="entypo-flow-cascade"></i>
+											<span>Menu Level 3.2</span>
+										</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">
+									<i class="entypo-flow-parallel"></i>
+									<span>Menu Level 2.3</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+				
+	</div>	
+	<div class="main-content">
+		
+<div class="row">
+	
+	<!-- Perfil Info and Notifications -->
+	<div class="col-md-6 col-sm-8 clearfix">
+		
+		<ul class="user-info pull-left pull-none-xsm">
+		
+						<!-- Perfil Info -->
+			<li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
+				
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					<img src="assets/images/thumb-1@2x.png" alt="" class="img-circle" width="44" />
+					Administrador
+				</a>
+				
+				<ul class="dropdown-menu">
+					
+					<!-- Reverse Caret -->
+					<li class="caret"></li>
+					
+					<!-- Perfil sub-links -->
+					<li>
+						<a href="extra-profile.html">
+							<i class="entypo-user"></i>
+							Perfil
+						</a>
+					</li><li>
+						<a href="extra-timeline.html">
+							<i class="entypo-pencil"></i>
+							Editar Perfil
+						</a>
+					</li>
+					
+					<li>
+						<a href="mailbox.html">
+							<i class="entypo-mail"></i>
+							Bandeja
+						</a>
+					</li>
+					
+					<li>
+						<a href="extra-calendar.html">
+							<i class="entypo-calendar"></i>
+							Calendario
+						</a>
+					</li>
+					
+					<li>
+						<a href="#">
+							<i class="entypo-clipboard"></i>
+							Tareas
+						</a>
+					</li>
+				</ul>
+			</li>
+		
+		</ul>
+				
+		<ul class="user-info pull-left pull-right-xs pull-none-xsm">
+			
+			<!-- Raw Notifications -->
+			<li class="notifications dropdown">
+				
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+					<i class="entypo-attention"></i>
+					<span class="badge badge-info">6</span>
+				</a>
+				
+				<ul class="dropdown-menu">
+					<li class="top">
+	<p class="small">
+		<a href="#" class="pull-right">Marcas todos leídos</a>
+		Usted tiene <strong>3</strong> nuevas notificaciones.
+	</p>
+</li>
+
+<li>
+	<ul class="dropdown-menu-list scroller">
+		<li class="unread notification-success">
+			<a href="#">
+				<i class="entypo-user-add pull-right"></i>
+				
+				<span class="line">
+					<strong>Nuevo usuario registrado</strong>
+				</span>
+				
+				<span class="line small">
+					Hace 30 segundos
+				</span>
+			</a>
+		</li>
+		
+		<li class="unread notification-secondary">
+			<a href="#">
+				<i class="entypo-heart pull-right"></i>
+				
+				<span class="line">
+					<strong>Algún miembro le gusta esto</strong>
+				</span>
+				
+				<span class="line small">
+					Hace 2 minutos
+				</span>
+			</a>
+		</li>
+		
+		<li class="notification-primary">
+			<a href="#">
+				<i class="entypo-user pull-right"></i>
+				
+				<span class="line">
+					<strong>Configuración de privacidad ha sido cambiada</strong>
+				</span>
+				
+				<span class="line small">
+					Hace 3 horas
+				</span>
+			</a>
+		</li>
+		
+		<li class="notification-danger">
+			<a href="#">
+				<i class="entypo-cancel-circled pull-right"></i>
+				
+				<span class="line">
+					John canceló el evento
+				</span>
+				
+				<span class="line small">
+					Hace 9 horas
+				</span>
+			</a>
+		</li>
+		
+		<li class="notification-info">
+			<a href="#">
+				<i class="entypo-info pull-right"></i>
+				
+				<span class="line">
+					El estado del servidor es estable
+				</span>
+				
+				<span class="line small">
+					Ayer a las 10:30 am
+				</span>
+			</a>
+		</li>
+		
+		<li class="notification-warning">
+			<a href="#">
+				<i class="entypo-rss pull-right"></i>
+				
+				<span class="line">
+					Nuevos comentarios esperan aprovación
+				</span>
+				
+				<span class="line small">
+					Semana pasada
+				</span>
+			</a>
+		</li>
+	</ul>
+</li>
+
+<li class="external">
+	<a href="#">Ver todas las notificaciones</a>
+</li>				</ul>
+				
+			</li>
+			
+			<!-- Message Notifications -->
+			<li class="notifications dropdown">
+				
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+					<i class="entypo-mail"></i>
+					<span class="badge badge-secondary">10</span>
+				</a>
+				
+				<ul class="dropdown-menu">
+					<li>
+	<ul class="dropdown-menu-list scroller">
+		<li class="active">
+			<a href="#">
+				<span class="image pull-right">
+					<img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+				</span>
+				
+				<span class="line">
+					<strong>Luc Chartier</strong>
+					- yesterday
+				</span>
+				
+				<span class="line desc small">
+					This ain’t our first item, it is the best of the rest.
+				</span>
+			</a>
+		</li>
+		
+		<li class="active">
+			<a href="#">
+				<span class="image pull-right">
+					<img src="assets/images/thumb-2.png" alt="" class="img-circle" />
+				</span>
+				
+				<span class="line">
+					<strong>Salma Nyberg</strong>
+					- 2 days ago
+				</span>
+				
+				<span class="line desc small">
+					Oh he decisively impression attachment friendship so if everything. 
+				</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="#">
+				<span class="image pull-right">
+					<img src="assets/images/thumb-3.png" alt="" class="img-circle" />
+				</span>
+				
+				<span class="line">
+					Hayden Cartwright
+					- a week ago
+				</span>
+				
+				<span class="line desc small">
+					Whose her enjoy chief new young. Felicity if ye required likewise so doubtful.
+				</span>
+			</a>
+		</li>
+		
+		<li>
+			<a href="#">
+				<span class="image pull-right">
+					<img src="assets/images/thumb-4.png" alt="" class="img-circle" />
+				</span>
+				
+				<span class="line">
+					Sandra Eberhardt
+					- 16 days ago
+				</span>
+				
+				<span class="line desc small">
+					On so attention necessary at by provision otherwise existence direction.
+				</span>
+			</a>
+		</li>
+	</ul>
+</li>
+
+<li class="external">
+	<a href="mailbox.html">Todos los mensajes</a>
+</li>				</ul>
+				
+			</li>
+			
+			<!-- Task Notifications -->
+			<li class="notifications dropdown">
+				
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+					<i class="entypo-list"></i>
+					<span class="badge badge-warning">1</span>
+				</a>
+				
+				<ul class="dropdown-menu">
+					<li class="top">
+	<p>Usted tiene 6 tareas pendientes</p>
+</li>
+
+<li>
+	<ul class="dropdown-menu-list scroller">
+		<li>
+			<a href="#">
+				<span class="task">
+					<span class="desc">Procurement</span>
+					<span class="percent">27%</span>
+				</span>
+			
+				<span class="progress">
+					<span style="width: 27%;" class="progress-bar progress-bar-success">
+						<span class="sr-only">27% Completado</span>
+					</span>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<span class="task">
+					<span class="desc">App Development</span>
+					<span class="percent">83%</span>
+				</span>
+				
+				<span class="progress progress-striped">
+					<span style="width: 83%;" class="progress-bar progress-bar-danger">
+						<span class="sr-only">83% Completado</span>
+					</span>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<span class="task">
+					<span class="desc">HTML Slicing</span>
+					<span class="percent">91%</span>
+				</span>
+				
+				<span class="progress">
+					<span style="width: 91%;" class="progress-bar progress-bar-success">
+						<span class="sr-only">91% Completado</span>
+					</span>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<span class="task">
+					<span class="desc">Database Repair</span>
+					<span class="percent">12%</span>
+				</span>
+				
+				<span class="progress progress-striped">
+					<span style="width: 12%;" class="progress-bar progress-bar-warning">
+						<span class="sr-only">12% Completado</span>
+					</span>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<span class="task">
+					<span class="desc">Backup Create Progress</span>
+					<span class="percent">54%</span>
+				</span>
+				
+				<span class="progress progress-striped">
+					<span style="width: 54%;" class="progress-bar progress-bar-info">
+						<span class="sr-only">54% Completado</span>
+					</span>
+				</span>
+			</a>
+		</li>
+		<li>
+			<a href="#">
+				<span class="task">
+					<span class="desc">Upgrade Progress</span>
+					<span class="percent">17%</span>
+				</span>
+				
+				<span class="progress progress-striped">
+					<span style="width: 17%;" class="progress-bar progress-bar-important">
+						<span class="sr-only">17% Completado</span>
+					</span>
+				</span>
+			</a>
+		</li>
+	</ul>
+</li>
+
+<li class="external">
+	<a href="#">Ver todas las tareas</a>
+</li>				</ul>
+				
+			</li>
+		
+		</ul>
+	
+	</div>
+	
+	
+	<!-- Raw Links -->
+	<div class="col-md-6 col-sm-4 clearfix hidden-xs">
+		
+		<ul class="list-inline links-list pull-right">
+			
+			<!-- Language Selector -->			<li class="dropdown language-selector">
+				
+				Idioma: &nbsp;
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-close-others="true">
+					<img src="assets/images/flag-es.png" />
+				</a>
+				
+				<ul class="dropdown-menu pull-right">
+					<li>
+						<a href="#">
+							<img src="assets/images/flag-de.png" />
+							<span>Deutsch</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="assets/images/flag-uk.png" />
+							<span>English</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="assets/images/flag-fr.png" />
+							<span>François</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="assets/images/flag-al.png" />
+							<span>Shqip</span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<img src="assets/images/flag-es.png" />
+							<span>Español</span>
+						</a>
+					</li>
+				</ul>
+				
+			</li>
+			
+			<li class="sep"></li>
+			
+						
+			<li>
+				<a href="#" data-toggle="chat" data-animate="1" data-collapse-sidebar="1">
+					<i class="entypo-chat"></i>
+					Chat
+					
+					<span class="badge badge-success chat-notifications-badge is-hidden">0</span>
+				</a>
+			</li>
+			
+			<li class="sep"></li>
+			
+			<li>
+				<a href="extra-login.html">
+					Salir <i class="entypo-logout right"></i>
+				</a>
+			</li>
+		</ul>
+		
+	</div>
+	
+</div>
+
+<hr />
+			<ol class="breadcrumb bc-3">
+						<li>
+				<a href="index.html"><i class="entypo-home"></i>Inicio</a>
+			</li>
+					<li>
+			
+							<a href="forms-main.html">Formularios</a>
+					</li>
+				<li class="active">
+			
+							<strong>Procesos</strong>
+					</li>
+					</ol>
+			<h2>Ejemplo de Desarrollo de Producto</h2>
+<br />
+	
+
+
+<h4>Pedidos, tallas y ratios, especificaciones, etapas y Operaciones <!-- <small>- add class <strong>validate</strong> to the form</small>--></h4>
+<hr />
+
+<div class="well well-sm">
+	<h4>Porfavor llene los detalles para iniciar un nuevo desarrollo de producto.</h4>
+</div>
+
+<form id="form1" name="form1" method="post" action="informacion.php" class="form-wizard validate">
+	
+	<div class="steps-progress">
+		<div class="progress-indicator"></div>
+	</div>
+	
+	<ul>
+		<li class="active">
+			<a href="#tab2-1" data-toggle="tab"><span>1</span>Módulo de Pedido</a>
+		</li>
+		<li>
+			<a href="#tab2-2" data-toggle="tab"><span>2</span>Módulo de Ratios, tallas y medidas</a>
+		</li>
+		<li>
+			<a href="#tab2-3" data-toggle="tab"><span>3</span>Módulo de Consumo </a>
+		</li>
+		<li>
+			<a href="#tab2-4" data-toggle="tab"><span>4</span>Módulo de Etapas y Operaciones</a>
+		</li>
+	</ul>
+	
+	<div class="tab-content">
+		<div class="tab-pane active" id="tab2-1">
+			
+			<div class="row">
+				
+				<div class="col-md-3">
+					<div class="form-group">
+						<label class="control-label" for="full_name1">Orden de Pedido</label>
+						<input class="form-control" name="form_1_1" id="full_name" readonly value="000001" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="full_name2">Orden de Desarrollo</label>
+						<input class="form-control" name="form_1_2" id="full_name" readonly value="000001" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="full_name3">Tipo de prenda</label>
+							<select name="form_1_3" class="select2" id="selectproducto">
+                                                            <option value="T'shirt">T'shirt</option>
+                                                            <option value="Tank Top">Tank Top</option>
+                                                            <option value="Polo Camisero">Polo Camisero</option>
+                                                            <option value="Camisa Manga larga">Camisa Manga larga</option>
+                                                            <option value="Camisa sport">Camisa sport</option>
+                                                            <option value="Blusa">Blusa</option>
+                                                            <option value="7">Pantalón vestir</option>
+                                                            <option value="8">Jeans</option>
+                                                            <option value="9">Vestido</option>
+                                                            <option value="10">Pijama</option>
+                                                            <option value="11">Bragas</option>
+                                                            <option value="12">Calzoncillo</option>
+                                                            <option value="Casaca">Casaca</option>
+                                                            <option value="14">Mameluco</option>
+                                                            <option value="15">Crear nuevo</option>
+                                                            <!--<option value="1">T'shirt</option>
+                                                            <option value="2">Tank Top</option>
+                                                            <option value="3">Polo Camisero</option>
+                                                            <option value="4">Camisa Manga larga</option>
+                                                            <option value="5">Camisa sport</option>
+                                                            <option value="6">Blusa</option>
+                                                            <option value="7">Pantalón vestir</option>
+                                                            <option value="8">Jeans</option>
+                                                            <option value="9">Vestido</option>
+                                                            <option value="10">Pijama</option>
+                                                            <option value="11">Bragas</option>
+                                                            <option value="12">Calzoncillo</option>
+                                                            <option value="13">Casaca</option>
+                                                            <option value="14">Mameluco</option>
+                                                            <option value="15">Crear nuevo</option>-->
+							</select>
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="full_name4">Estructura de tejido</label>
+							<select placeholder="Seleccione una estructura de tejido" name="form_1_4" class="select2" onchange="slctryole(this,this.form.form_1_5)" >
+								<option>- - - - - -</option>
+								<option value="plano" >Tejido Plano</option> 
+                                                                <option value="punto" >Tejido de Punto</option>
+							</select>
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="full_name5">Tipo de tejido</label>
+							<select placeholder="Seleccione un tipo de tejido" name="form_1_5" class="select2" multiple onchange="slctryole(this,this.form.select3)" >
+                                                            <option>- - - - - -</option>
+                                                        </select>
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="full_name7">Rendimiento (m)</label>							
+						<input type="text" name='form_1_118' class="form-control" data-mask="fdecimal" placeholder="Máximo 999" />
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="full_name7">Ancho (m)</label>							
+						<input type="text" name='form_1_1118' class="form-control" data-mask="fdecimal" placeholder="Máximo 999" />
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="full_name7">Densidad de tejido (kg/m2)</label>							
+						<input type="text" name='form_1_18' class="form-control" data-mask="fdecimal" placeholder="Máximo 999" />
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="full_name14">Peso de prenda neto (kg)</label>
+                                                <input type="text" name='form_1_7' class="form-control" data-mask="fdecimal" placeholder="Ingrese el peso de prenda neto"/>
+                                        </div>		
+                                </div>
+				<div class="col-md-3">                                       
+					<div class="form-group">                                            
+						<label class="control-label" for="full_name6">Tipo de Materia prima principal y porcentaje</label>
+                                            <table width="100%">
+                                                <tr>
+                                                    <td>
+							<select name="form_1_8" class="select2" >
+                                                                <option value="	1	" >	Acrilica 	</option>
+                                                                <option value="	2	" >	Algodón	</option>
+                                                                <option value="	3	" >	Lana o pelo fino	</option>
+                                                                <option value="	4	" >	Sinteticas y artificiales  	</option>
+                                                                <option value="	5	" >	Spandex	</option>
+                                                                <option value="	6	" >	Otros	</option>
+							</select>
+                                                    </td>
+                                                    <td align="center">
+                                                        <input type="text" size="3" name="resta1" id="resta1" data-mask="99" onkeyup="restarPorcentaje()" placeholder="100%"/>                                                    </td>
+                                            </tr>
+                                           </table>
+                                        </div>                                      
+					<div class="form-group">
+						<label class="control-label" for="full_name6">Tipo de Materia prima secundaria</label>
+							<table width="100%">
+                                                            <tr>
+                                                                <td>
+                                                                    <select name="form_1_9" class="select2" >
+                                                                            <option value="	2	" >	Algodón	</option>
+                                                                            <option value="	1	" >	Acrilica 	</option>
+                                                                            <option value="	3	" >	Lana o pelo fino	</option>
+                                                                            <option value="	4	" >	Sinteticas y artificiales  	</option>
+                                                                            <option value="	5	" >	Spandex	</option>
+                                                                            <option value="	6	" >	Otros	</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td align="center">
+                                                                    <input type="text" size="3" name="rest111" id="rest111" onkeyup="restarPorcentaje()" value="0" readonly />                                                                </td>
+                                                            </tr>
+                                                       </table>
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="full_name11">Campaña</label>
+						<select placeholder="Seleccione una campaña" name="form_1_10" class="select2">
+								<option value="1" >Otoño/Invierno </option>
+								<option value="2" >Primavera/ Verano </option>
+								<option value="3" >Otoño</option>
+								<option value="4" >Primavera</option>
+								<option value="5" >Invierno</option>
+								<option value="6" >Verano</option>
+						</select>
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="full_name29">División</label>
+						<select placeholder="Seleccione una campaña" name="form_1_11" class="select2">
+								<option value="1" >Prendas Deportivas</option>
+								<option value="2" >Ropa Urbana</option>
+								<option value="3" >Prendas Formales</option>
+								<option value="4" >Ropa de dormir</option>
+								<option value="5" >Prendas íntimas</option>
+								<option value="6" >Ropa Interior</option>
+								<option value="7" >Trajes</option>
+								<option value="8" >Trajes de baño</option>
+								<option value="9" >Prendas Bebes y niños</option>
+								<option value="10" >Medias o Calcetines</option>
+								<option value="11" >Vestidos</option>
+								<option value="12" >Prendas de abrigo</option>
+								<option value="13" >Prendas de Seguridad</option>
+                                                </select>
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="full_name12">Género</label>
+						<select id="selectgenero" name="form_1_12" class="select2">
+								<option value="Caballero" >Caballero</option>
+								<option value="Damas" >Damas</option>
+								<option value="Niños" >Niños</option>
+								<option value="Niñas" >Niñas</option>
+								<option value="Bebes" >Bebes</option>
+								<option value="Unisex" >Unisex</option>
+						</select>
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="full_name13">Aplicaciones</label>
+						<select placeholder="Seleccione una aplicación" name="form_1_13" class="select2" multiple>
+								<option value="3" >Bordado</option>
+								<option value="2" >Estampado</option>
+								<option value="5" >Lavado</option>
+								<option value="1" >Esmerilado</option>
+								<option value="4" >Desgaste</option>
+						</select>
+                                        </div>
+                                </div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<label class="control-label" for="full_name8">Nombre de Cliente</label>
+						<select placeholder="Ingrese el código de cliente" name="form_1_14" class="select2" required>
+								<option value="1" >10471092989 </option>
+								<option value="2" >20471092985 </option>
+						</select>                                        
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="full_name9">Contacto</label>
+						<select placeholder="Ingrese un contacto" name="form_1_15" class="select2" required>
+								<option value="1" >Seleccione un cliente </option>
+                                                </select>
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="birthdate17">Mercado</label>
+                                                <select placeholder="Seleccione una mercado" name="form_1_17" class="select2">
+								<option value="	1	" >	Mexico	</option>
+                                                                <option value="	2	" >	Honduras 	</option>
+                                                                <option value="	3	" >	Puerto Rico	</option>
+                                                                <option value="	4	" >	Republica Dominicana 	</option>
+                                                                <option value="	5	" >	Cuba	</option>
+                                                                <option value="	6	" >	El Salvador 	</option>
+                                                                <option value="	7	" >	Estados Unidos 	</option>
+                                                                <option value="	8	" >	Canada	</option>
+                                                                <option value="	9	" >	España	</option>
+                                                                <option value="	10	" >	Francia 	</option>
+                                                                <option value="	11	" >	Italia	</option>
+                                                                <option value="	12	" >	Reino Unido	</option>
+                                                                <option value="	13	" >	Alemania	</option>
+                                                                <option value="	14	" >	Rusia	</option>
+                                                                <option value="	15	" >	Holanda	</option>
+                                                                <option value="	16	" >	Dinamarca	</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="birthdate18">Cantidad</label>
+						<input type="text" name='form_1_18' id="cantidad" class="form-control" data-mask="9999999" placeholder="Máximo 999999" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="birthdate20">Colores</label>                                                
+                                                <select placeholder="Seleccione los tipos de tallas" name="form_1_19" class="select2" multiple>
+							<option value="1" >Seleccione un tipo de producto </option>	
+						</select>
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="birthdate30">Ruta de proceso</label>                                                
+                                                <select placeholder="Seleccione la ruta de proceso" name="form_1_20" class="select2" multiple>                                                    
+								<option value="	1	" >	Tendido/Tizado	</option>
+								<option value="	2	" >	Corte	</option>
+                                                                <option value="	3	" >	Habilitado 	</option>
+                                                                <option value="	4	" >	Estampado	</option>
+                                                                <option value="	5	" >	Bordado	</option>
+                                                                <option value="	6	" >	Costura de partes	</option>
+                                                                <option value="	7	" >	Ensamble	</option>
+                                                                <option value="	8	" >	Limpieza	</option>
+                                                                <option value="	9	" >	Lavado	</option>
+                                                                <option value="	10	" >	Esmerilado	</option>
+                                                                <option value="	11	" >	desgaste 	</option>
+                                                                <option value="	12	" >	Control de Calidad 	</option>
+                                                                <option value="	13	" >	Empaque	</option>
+                                                                <option value="	14	" >	Empaque	</option>
+                                                                <option value="	15	" >	Reparación 	</option>
+                                                </select>
+					</div>
+                                    <div class="form-group">
+						<label class="control-label" for="birthdate30">Ruta de proceso para prendas tejidas</label>                                                
+                                        <select type="hidden" placeholder="Seleccione la ruta de proceso" name="form_1_120" class="select2" multiple>                                                    
+								<option value="	1	" >	Devanar Hilos	</option>
+								<option value="	2	" >	Tejer Manual	</option>
+                                                                <option value="	3	" >	Tejer Plana Manual 	</option>
+                                                                <option value="	4	" >	Tejer Rectilinea	</option>
+                                                                <option value="	5	" >	Tejer Circular	</option>
+                                                                <option value="	6	" >	Sobrecerrado	</option>
+                                                                <option value="	7	" >	Cosido  y Puntada	</option>
+                                                                <option value="	8	" >	Lavado	</option>
+                                                                <option value="	9	" >	Inspeccion	</option>
+                                                                <option value="	10	" >	Empaque	</option>
+                                                                <option value="	12	" >	Control de Calidad 	</option>
+                                                                <option value="	15	" >	Reparación 	</option>
+                                                </select>
+                                    </div>
+                                </div>
+				<div class="col-md-3">
+					<!--<div class="form-group">
+						<label class="control-label" for="birthdate23">Fecha de  Pedido</label>
+						<input class="form-control" name="form_1_23" id="birthdate" data-validate="required" data-mask="date" placeholder="Ingrese Fecha de Pedido" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="birthdate24">Fecha de Entrega Muestras</label>
+						<input class="form-control" name="form_1_24" id="birthdate" data-validate="required" data-mask="date" placeholder="Ingrese Fecha de Entrega Muestras" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="birthdate25">Fecha de Entrega Pedido </label>
+						<input class="form-control" name="form_1_25" id="birthdate" data-validate="required" data-mask="date" placeholder="Ingrese Fecha de Entrega Pedido" />
+					</div>-->
+                                        <div class="form-group">
+						<label class="control-label">Fecha de pedido y entrega</label>
+							
+							<div class="daterange daterange-inline" data-format="MMMM D, YYYY" data-start-date="March 13, 2014" data-end-date="March 27, 2014">
+								<i class="entypo-calendar"></i>
+								<span>March 13, 2014 - March 27, 2014</span>
+							</div>
+							
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="birthdate27">Responsable UDP</label>
+						<input class="form-control" name="form_1_26" id="full_name" data-validate="required" placeholder="Ingrese responsable UDP" />
+                                        </div>
+				</div>				
+			</div>
+			
+			<div class="row">
+				
+				<div class="col-md-12">
+					<div class="form-group">
+						<label class="control-label" for="about">Observaciones del pedido (Opcional)</label>
+						<textarea class="form-control autogrow" name="form_1_about" id="about" data-validate="minlength[10]" rows="5" placeholder="Doblado, tipo y tamaño de bolsa y caja (cubicaje) Ratios; de empaque (por modelo, por tallas, por color) Stiker: (Modelo, precio, color, talla, tienda Rótulos caja (Modelo o modelos, color o colores, talla o tallas y tienda)"></textarea>
+					</div>
+				</div>
+
+			</div>
+			
+		</div>            
+            
+		<div class="tab-pane" id="tab2-2">
+			
+			
+			<div class="row">
+				
+				<div class="col-md-12">                                           
+                                                            <input type="button" value="Obtener valores" onclick="capturar();">
+                                                            <div id="resultado24">
+                                                                
+                                                            </div>
+                                                                                <BR>
+                                <table id="example" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr >
+                                            <th align="center">COLOR</th>
+                                            <th align="center">CODIGO</th>
+                                            <th align="center">XS</th>
+                                            <th align="center">S</th>
+                                            <th align="center">M</th>
+                                            <th align="center">L</th>
+                                            <th align="center">XL</th>
+                                            <th align="center">XXL</th>
+                                            <th align="center">XXXL</th>
+                                        </tr>	
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type='text' name='sum11' id="sum11" value="0" maxlength="9"/></td>
+                                            <td><input type='text' name='sum12' id="sum12" value="0" maxlength="9"/></td>
+                                            <td><input type='text' name='sum13' id="sum13" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                            <td><input type='text' name='sum14' id="sum14" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                            <td><input type='text' name='sum15' id="sum15" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                            <td><input type='text' name='sum16' id="sum16" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                            <td><input type='text' name='sum17' id="sum17" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                            <td><input type='text' name='sum18' id="sum18" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                            <td><input type='text' name='sum19' id="sum19" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type='text' name='sum21' id="sum21" value="0" maxlength="9"/></td>
+                                            <td><input type='text' name='sum22' id="sum22" value="0" maxlength="9"/></td>
+                                            <td><input type='text' name='sum23' id="sum23" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                            <td><input type='text' name='sum24' id="sum24" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                            <td><input type='text' name='sum25' id="sum25" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                            <td><input type='text' name='sum26' id="sum26" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                            <td><input type='text' name='sum27' id="sum27" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                            <td><input type='text' name='sum28' id="sum28" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                            <td><input type='text' name='sum29' id="sum29" value="0" onkeyup="sumar();" data-mask="9"/></td>
+                                        </tr>                                       
+                                        <tr>
+                                        <td><input type='text' name='res1' id="res1" value="0"  readonly/></td>
+                                        <td><input type='text' name='res2' id="res2" value="0"  readonly /></td>
+                                        <td><input type='text' name='res3' id="res3" value="0" onkeyup="sumar();" readonly /></td>
+                                        <td><input type='text' name='res4' id="res4" value="0" onkeyup="sumar();" readonly /></td>
+                                        <td><input type='text' name='res5' id="res5" value="0" onkeyup="sumar();" readonly /></td>
+                                        <td><input type='text' name='res6' id="res6" value="0" onkeyup="sumar();" readonly /></td>
+                                        <td><input type='text' name='res7' id="res7" value="0" onkeyup="sumar();" readonly /></td>
+                                        <td><input type='text' name='res8' id="res8" value="0" onkeyup="sumar();" readonly /></td>
+                                        <td><input type='text' name='res9' id="res9" value="0" onkeyup="sumar();" readonly /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div align="center">       
+                                    <br>
+<input type="button" class="btn btn-outline btn-blue btn-xl btn-block" value="Agregar Color" onclick="agregar();" name="new_agent"/>
+<input type="button" class="btn btn-outline btn-red btn-xl btn-block" value="Borrar Color" onclick="borrarUltima();" name="new_agent"/>
+<input type="button" class="btn btn-outline btn-green btn-xl btn-block" value="Calcular" onclick="calcular();" name="new_agent"/>
+
+<br><br>
+                                </div>   
+					
+				</div>
+				
+				<div class="col-md-6">                                  
+                                    <table id="example2" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th align="center">RATIO</th>
+                                            <th align="center">VOLUMEN</th>
+                                            <th align="center">EXCEDENTE 5%</th>
+                                            <th align="center">REDONDEO</th>
+                                        </tr>	
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td align="center"><input type='text' name='rat1' id="rat1" value="0" onkeyup="sumar();" readonly /></td>
+                                            <td align="center"><input type='text' name='rat2' id="rat2" value="0" onkeyup="sumar();" readonly /></td>
+                                            <td align="center"><input type='text' name='rat3' id="rat3" value="0" onkeyup="sumar();" readonly /></td>
+                                            <td align="center"><input type='text' name='rat4' id="rat4" value="0" onkeyup="sumar();" readonly /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>                                      
+				</div>				
+				
+				<div class="col-md-12">     
+                                    <BR>
+                                <table id="example" class="display" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr >
+                                            <th align="center">COLOR</th>
+                                            <th align="center">CODIGO</th>
+                                            <th align="center">XS</th>
+                                            <th align="center">S</th>
+                                            <th align="center">M</th>
+                                            <th align="center">L</th>
+                                            <th align="center">XL</th>
+                                            <th align="center">XXL</th>
+                                            <th align="center">XXXL</th>
+                                        </tr>	
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type='text' name='sumrat11' id="sumrat11" value="0" readonly/></td>
+                                            <td><input type='text' name='sumrat12' id="sumrat12" value="0" readonly/></td>
+                                            <td><input type='text' name='sumrat13' id="sumrat13" value="0" onkeyup="sumratar();" readonly/></td>
+                                            <td bgcolor="yellow"><input type='text' name='sumrat14' id="sumrat14" value="0" onkeyup="sumratar();" readonly/></td>
+                                            <td bgcolor="yellow"><input type='text' name='sumrat15' id="sumrat15" value="0" onkeyup="sumratar();" readonly/></td>
+                                            <td bgcolor="yellow"><input type='text' name='sumrat16' id="sumrat16" value="0" onkeyup="sumratar();" readonly/></td>
+                                            <td bgcolor="yellow"><input type='text' name='sumrat17' id="sumrat17" value="0" onkeyup="sumratar();" readonly/></td>
+                                            <td><input type='text' name='sumrat18' id="sumrat18" value="0" onkeyup="sumratar();" readonly/></td>
+                                            <td><input type='text' name='sumrat19' id="sumrat19" value="0" onkeyup="sumratar();" readonly/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type='text' name='sumrat21' id="sumrat21" value="0" readonly/></td>
+                                            <td><input type='text' name='sumrat22' id="sumrat22" value="0" readonly/></td>
+                                            <td><input type='text' name='sumrat23' id="sumrat23" value="0" onkeyup="sumratar();" readonly/></td>
+                                            <td bgcolor="green"><input type='text' name='sumrat24' id="sumrat24" value="0" onkeyup="sumratar();" readonly/></td>
+                                            <td bgcolor="green"><input type='text' name='sumrat25' id="sumrat25" value="0" onkeyup="sumratar();" readonly/></td>
+                                            <td bgcolor="green"><input type='text' name='sumrat26' id="sumrat26" value="0" onkeyup="sumratar();" readonly/></td>
+                                            <td bgcolor="green"><input type='text' name='sumrat27' id="sumrat27" value="0" onkeyup="sumratar();" readonly/></td>
+                                            <td><input type='text' name='sumrat28' id="sumrat28" value="0" onkeyup="sumratar();" readonly/></td>
+                                            <td><input type='text' name='sumrat29' id="sumrat29" value="0" onkeyup="sumratar();" readonly/></td>
+                                        </tr>                                       
+                                        <tr>
+                                        <td><input type='text' name='resrat1' id="resrat1" value="0"  readonly/></td>
+                                        <td><input type='text' name='resrat2' id="resrat2" value="0"  readonly /></td>
+                                        <td><input type='text' name='resrat3' id="resrat3" value="0" onkeyup="sumratar();" readonly /></td>
+                                        <td bgcolor="blue"><input type='text' name='resrat4' id="resrat4" value="0" onkeyup="sumratar();" readonly /></td>
+                                        <td bgcolor="blue"><input type='text' name='resrat5' id="resrat5" value="0" onkeyup="sumratar();" readonly /></td>
+                                        <td bgcolor="blue"><input type='text' name='resrat6' id="resrat6" value="0" onkeyup="sumratar();" readonly /></td>
+                                        <td bgcolor="blue"><input type='text' name='resrat7' id="resrat7" value="0" onkeyup="sumratar();" readonly /></td>
+                                        <td><input type='text' name='resrat8' id="resrat8" value="0" onkeyup="sumratar();" readonly /></td>
+                                        <td><input type='text' name='resrat9' id="resrat9" value="0" onkeyup="sumratar();" readonly /></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="10"><input type='text' style="font-size:14px;" name='resrat10' id="resrat10" value="0" onkeyup="sumratar();" readonly /></td>
+                                        </tr>
+                                    </tbody>
+                                </table> 
+					
+				</div>                            
+                            
+				<div class="col-md-12">                                           
+                                                            <input type="button" value="Obtener valores" onclick="capturar();">
+                                                            <div id="resultado24">
+                                                                
+                                                            </div>
+                                                                                <BR>
+                            
+                                                                                
+                                                                                
+                                 <table class="tg" name="example2" id="example2" border="1" width="100%">
+                                      <tr>
+                                        <th class="tg-031e" colspan="9" align="center">TABLA DE MEDIDAS</th>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-031e" rowspan="2">PUNTO DE MEDIDA</td>
+                                        <td class="tg-031e" colspan="2">TOLERANCIA</td>
+                                        <td class="tg-031e" rowspan="2">XS</td>
+                                        <td class="tg-031e" rowspan="2">S</td>
+                                        <td class="tg-031e" rowspan="2">M</td>
+                                        <td class="tg-031e" rowspan="2">L</td>
+                                        <td class="tg-031e" rowspan="2">XL</td>
+                                        <td class="tg-031e" rowspan="2">XXL</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-031e">NEG.</td>
+                                        <td class="tg-031e">POS.</td>
+                                      </tr>
+                                      <tr>
+                                        <td class="tg-031e"><input type="text"/></td>
+                                        <td class="tg-031e"><input type="text"/></td>
+                                        <td class="tg-031e"><input type="text"/></td>
+                                        <td class="tg-031e"><input type="text"/></td>
+                                        <td class="tg-031e"><input type="text"/></td>
+                                        <td class="tg-031e"><input type="text"/></td>
+                                        <td class="tg-031e"><input type="text"/></td>
+                                        <td class="tg-031e"><input type="text"/></td>
+                                        <td class="tg-031e"><input type="text"/></td>
+                                      </tr>
+                                    </table>                                               
+                                <div align="center">       
+                                    <br>
+<input type="button" class="btn btn-outline btn-blue btn-xl btn-block" value="Agregar Punto de Medida" onclick="agregar2();" name="new_agent"/>
+<input type="button" class="btn btn-outline btn-red btn-xl btn-block" value="Editar Punto de Medida" onclick="borrarUltima2();" name="new_agent"/>
+<input type="button" class="btn btn-outline btn-default btn-xl btn-block" value="Borrar Punto de Medida" onclick="borrarUltima2();" name="new_agent"/>
+
+<br><br>
+                                </div>   
+					
+				</div>
+			</div>
+						
+		</div>
+            
+                <div class="tab-pane" id="tab2-3">			
+			
+			<div class="row">
+				
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="control-label" for="full_name">Género Seleccionado</label>
+                                                <input class="form-control" name="form_3_1"   readonly="" value="Hombres" />
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="full_name">Tipo de Prenda</label>
+						<input class="form-control" name="form_3_2" readonly value="T-Shirt" />
+					</div>                                 
+                                    
+					<div class="form-group">
+						<label class="control-label" for="full_name">Ratios Seleccionados</label>
+						<input class="form-control" name="full_name" id="full_name" placeholder="S" />
+						<input class="form-control" name="full_name" id="full_name" placeholder="M" />
+						<input class="form-control" name="full_name" id="full_name" placeholder="L" />
+						<input class="form-control" name="full_name" id="full_name" placeholder="XL" />
+						<label class="control-label" for="full_name">Factor</label>
+						<input class="form-control" name="form_3_3" readonly value="6" />
+					</div>                                   
+                                    
+				</div>
+				
+				<div class="col-md-6">
+					
+					<div class="form-group">
+						<label class="control-label" for="full_name">Pedidos 1</label>     
+						<input class="form-control" name="form_3_4" id="full_name" placeholder="Nombre (Ejemplo: Blanco)" />  
+						<input class="form-control" name="form_3_5" id="full_name" placeholder="Cantidad (Ejemplo: 600)" />   
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="full_name">Pedidos 2</label>     
+						<input class="form-control" name="form_3_6" id="full_name" placeholder="Nombre (Ejemplo: Rojo)" />  
+						<input class="form-control" name="form_3_7" id="full_name" placeholder="Cantidad (Ejemplo: 800)" />   
+                                        </div>
+					<div class="form-group">
+						<label class="control-label" for="full_name">Pedidos 3</label>     
+						<input class="form-control" name="form_3_8" id="full_name" placeholder="Nombre (Ejemplo: Negro)" />  
+						<input class="form-control" name="form_3_9" id="full_name" placeholder="Cantidad (Ejemplo: 700)" />   
+                                        </div>
+				</div>
+				
+			</div>
+			
+			<div class="row">
+				
+				<div class="col-md-12">
+					<div class="form-group">
+						<label class="control-label" for="about">Observaciones de tallas y ratios (Opcional)</label>
+						<textarea class="form-control autogrow" name="form_3_about" id="about" data-validate="minlength[10]" rows="5" placeholder="Por ficha o fichas simultaneas, simulaciones (capacidad instalada/ tiempo operaciones,) flujo grafico"></textarea>
+					</div>
+				</div>
+
+			</div>
+						
+		</div>
+            <!--
+                <div class="tab-pane" id="tab2-4">
+			
+			
+			<div class="row">
+				
+				<div class="col-md-3">
+					<div class="form-group">
+						<label class="control-label" for="full_name">Talla S</label>
+						</div> 
+					<div class="form-group">
+						<label class="control-label" for="full_name">Largo Espalda</label>
+						<input class="form-control" name="form_4_1" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>              
+					<div class="form-group">
+						<label class="control-label" for="full_name">Perímetro Pecho</label>
+						<input class="form-control" name="form_4_2" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>              
+					<div class="form-group">
+						<label class="control-label" for="full_name">Perímetro Cintura</label>
+						<input class="form-control" name="form_4_3" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>              
+					<div class="form-group">
+						<label class="control-label" for="full_name">Estatura</label>
+						<input class="form-control" name="form_4_4" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>                                    
+				</div>
+				
+				<div class="col-md-3">
+					<div class="form-group">
+						<label class="control-label" for="full_name">Talla M</label>
+						</div> 
+					<div class="form-group">
+						<label class="control-label" for="full_name">Largo Espalda</label>
+						<input class="form-control" name="form_4_5" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>              
+					<div class="form-group">
+						<label class="control-label" for="full_name">Perímetro Pecho</label>
+						<input class="form-control" name="form_4_6" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>              
+					<div class="form-group">
+						<label class="control-label" for="full_name">Perímetro Cintura</label>
+						<input class="form-control" name="form_4_7" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>              
+					<div class="form-group">
+						<label class="control-label" for="full_name">Estatura</label>
+						<input class="form-control" name="form_4_8" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>                                     
+				</div>
+				
+				<div class="col-md-3">
+					<div class="form-group">
+						<label class="control-label" for="full_name">Talla L</label>
+						</div> 
+					<div class="form-group">
+						<label class="control-label" for="full_name">Largo Espalda</label>
+						<input class="form-control" name="form_4_9" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>              
+					<div class="form-group">
+						<label class="control-label" for="full_name">Perímetro Pecho</label>
+						<input class="form-control" name="form_4_10" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>              
+					<div class="form-group">
+						<label class="control-label" for="full_name">Perímetro Cintura</label>
+						<input class="form-control" name="form_4_11" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>              
+					<div class="form-group">
+						<label class="control-label" for="full_name">Estatura</label>
+						<input class="form-control" name="form_4_12" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>                                       
+				</div>
+				
+				<div class="col-md-3">
+					<div class="form-group">
+						<label class="control-label" for="full_name">Talla XL</label>
+						</div> 
+					<div class="form-group">
+						<label class="control-label" for="full_name">Largo Espalda</label>
+						<input class="form-control" name="form_4_13" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>              
+					<div class="form-group">
+						<label class="control-label" for="full_name">Perímetro Pecho</label>
+						<input class="form-control" name="form_4_14" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>              
+					<div class="form-group">
+						<label class="control-label" for="full_name">Perímetro Cintura</label>
+						<input class="form-control" name="form_4_15" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>              
+					<div class="form-group">
+						<label class="control-label" for="full_name">Estatura</label>
+						<input class="form-control" name="form_4_16" id="full_name" data-validate="required" placeholder="Ingrese la medida" />
+					</div>                               
+				</div>
+				
+			</div>
+			
+			<div class="row">
+				
+				<div class="col-md-12">
+					<div class="form-group">
+						<label class="control-label" for="about">Observaciones de tallas y ratios (Opcional)</label>
+						<textarea class="form-control autogrow" name="form_4_about" id="about" data-validate="minlength[10]" rows="5" placeholder="Por ficha o fichas simultaneas, simulaciones (capacidad instalada/ tiempo operaciones,) flujo grafico"></textarea>
+					</div>
+				</div>
+
+			</div>
+						
+		</div>
+                <div class="tab-pane" id="tab2-5">
+			
+                    <div class="row">
+				
+				
+	<div class="col-md-12">
+		
+		<div class="panel panel-primary" data-collapsed="0">
+		
+			<div class="panel-heading">
+				<div class="panel-title">
+					Etapas y Especificaciones
+				</div>
+			</div>
+			
+			<div class="panel-body">
+			
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label">Suba una imagen con especificaciones y medidas</label>
+						
+						<div class="col-sm-5">
+							
+							<div class="fileinput fileinput-new" data-provides="fileinput">
+								<div class="fileinput-new thumbnail" style="width: 200px; height: 150px;" data-trigger="fileinput">
+									<img src="http://placehold.it/200x150" alt="...">
+								</div>
+								<div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px"></div>
+								<div>
+									<span class="btn btn-white btn-file">
+										<span class="fileinput-new">Seleccionar imagen</span>
+										<span class="fileinput-exists">Editar</span>
+										<input type="file" name="form_5_1" accept="image/*">
+									</span>
+									<a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput">Eliminar</a>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				
+				
+			</div>
+		
+		</div>
+		
+	</div>
+				
+			</div>
+			
+			<div class="row">
+				
+				<div class="col-md-12">
+					<div class="form-group">
+						<label class="control-label" for="about">Detalle el proceso</label>
+						<textarea class="form-control autogrow" name="form_5_about" id="about" data-validate="minlength[10]" rows="5" placeholder="Por Materia / por Etapas de operación, por todo el proceso, Impuestos, margen, costo de flete, comisiones etc"></textarea>
+					</div>
+				</div>
+
+			</div>
+                    
+			
+		</div>
+            -->
+		<div class="tab-pane" id="tab2-4">
+			
+                    <div class="row">
+				
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="control-label" for="full_name">Nombre</label>
+						<input class="form-control" name="form_6_1" id="full_name" data-validate="required" placeholder="Ingrese el nombre completo" />
+					</div>
+				</div>
+				
+				<div class="col-md-6">
+					<div class="form-group">
+						<label class="control-label" for="birthdate">Fecha actual</label>
+						<input class="form-control" name="form_6_2" id="birthdate" data-validate="required" data-mask="date" placeholder="Fecha actual" />
+					</div>
+				</div>
+				
+			</div>
+			
+			<div class="row">
+				
+				<div class="col-md-12">
+					<div class="form-group">
+						<label class="control-label" for="about">Detalle el proceso</label>
+						<textarea class="form-control autogrow" name="form_6_about" id="about" data-validate="minlength[10]" rows="5" placeholder="Por Materia / por Etapas de operación, por todo el proceso, Impuestos, margen, costo de flete, comisiones etc"></textarea>
+					</div>
+				</div>
+
+			</div>
+			
+			<div class="row">
+				
+				<div class="col-md-12">
+					<div class="form-group">
+						<input type="Submit" value='Registrar'/>
+                                        </div>
+				</div>
+
+			</div>
+                    
+			
+		</div>
+				
+		<ul class="pager wizard">
+			<li class="previous">
+				<a href="#"><i class="entypo-left-open"></i> Anterior</a>
+			</li>
+			
+			<li class="next">
+				<a href="#">Siguiente <i class="entypo-right-open"></i></a>
+			</li>
+		</ul>
+	</div>
+
+</form><!-- Footer -->
+<footer class="main">
+	
+		
+	&copy; 2014 <strong>Neon</strong> interfaz por <a href="http://www.dzcorporacion.com" target="_blank">DZ Corporación</a>
+	
+</footer>	</div>
+	
+	
+<div id="chat" class="fixed" data-current-user="Art Ramadani" data-order-by-status="1" data-max-chat-history="25">
+	
+	<div class="chat-inner">
+	
+		
+		<h2 class="chat-header">
+			<a href="#" class="chat-close" data-animate="1"><i class="entypo-cancel"></i></a>
+			
+			<i class="entypo-users"></i>
+			Chat
+			<span class="badge badge-success is-hidden">0</span>
+		</h2>
+		
+		
+		<div class="chat-group" id="group-1">
+			<strong>Favorites</strong>
+			
+			<a href="#" id="sample-user-123" data-conversation-history="#sample_history"><span class="user-status is-online"></span> <em>Catherine J. Watkins</em></a>
+			<a href="#"><span class="user-status is-online"></span> <em>Nicholas R. Walker</em></a>
+			<a href="#"><span class="user-status is-busy"></span> <em>Susan J. Best</em></a>
+			<a href="#"><span class="user-status is-offline"></span> <em>Brandon S. Young</em></a>
+			<a href="#"><span class="user-status is-idle"></span> <em>Fernando G. Olson</em></a>
+		</div>
+		
+		
+		<div class="chat-group" id="group-2">
+			<strong>Work</strong>
+			
+			<a href="#"><span class="user-status is-offline"></span> <em>Robert J. Garcia</em></a>
+			<a href="#" data-conversation-history="#sample_history_2"><span class="user-status is-offline"></span> <em>Daniel A. Pena</em></a>
+			<a href="#"><span class="user-status is-busy"></span> <em>Rodrigo E. Lozano</em></a>
+		</div>
+		
+		
+		<div class="chat-group" id="group-3">
+			<strong>Social</strong>
+			
+			<a href="#"><span class="user-status is-busy"></span> <em>Velma G. Pearson</em></a>
+			<a href="#"><span class="user-status is-offline"></span> <em>Margaret R. Dedmon</em></a>
+			<a href="#"><span class="user-status is-online"></span> <em>Kathleen M. Canales</em></a>
+			<a href="#"><span class="user-status is-offline"></span> <em>Tracy J. Rodriguez</em></a>
+		</div>
+	
+	</div>
+	
+	<!-- conversation template -->
+	<div class="chat-conversation">
+		
+		<div class="conversation-header">
+			<a href="#" class="conversation-close"><i class="entypo-cancel"></i></a>
+			
+			<span class="user-status"></span>
+			<span class="display-name"></span> 
+			<small></small>
+		</div>
+		
+		<ul class="conversation-body">	
+		</ul>
+		
+		<div class="chat-textarea">
+			<textarea class="form-control autogrow" placeholder="Type your message"></textarea>
+		</div>
+		
+	</div>
+	
+</div>
+
+
+<!-- Chat Histories -->
+<ul class="chat-history" id="sample_history">
+	<li>
+		<span class="user">Administrador</span>
+		<p>Are you here?</p>
+		<span class="time">09:00</span>
+	</li>
+	
+	<li class="opponent">
+		<span class="user">Catherine J. Watkins</span>
+		<p>This message is pre-queued.</p>
+		<span class="time">09:25</span>
+	</li>
+	
+	<li class="opponent">
+		<span class="user">Catherine J. Watkins</span>
+		<p>Whohoo!</p>
+		<span class="time">09:26</span>
+	</li>
+	
+	<li class="opponent unread">
+		<span class="user">Catherine J. Watkins</span>
+		<p>Do you like it?</p>
+		<span class="time">09:27</span>
+	</li>
+</ul>
+
+
+
+
+<!-- Chat Histories -->
+<ul class="chat-history" id="sample_history_2">
+	<li class="opponent unread">
+		<span class="user">Daniel A. Pena</span>
+		<p>I am going out.</p>
+		<span class="time">08:21</span>
+	</li>
+	
+	<li class="opponent unread">
+		<span class="user">Daniel A. Pena</span>
+		<p>Call me when you see this message.</p>
+		<span class="time">08:27</span>
+	</li>
+</ul>	
+	</div>
+
+
+
+	<link rel="stylesheet" href="assets/js/select2/select2-bootstrap.css">
+	<link rel="stylesheet" href="assets/js/select2/select2.css">
+	<link rel="stylesheet" href="assets/js/selectboxit/jquery.selectBoxIt.css">
+
+	<!-- Bottom Scripts -->
+	<script src="assets/js/gsap/main-gsap.js"></script>
+	<script src="assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/joinable.js"></script>
+	<script src="assets/js/resizeable.js"></script>
+	<script src="assets/js/neon-api.js"></script>
+	<script src="assets/js/jquery.bootstrap.wizard.min.js"></script>
+	<script src="assets/js/jquery.validate.min.js"></script>
+	<script src="assets/js/jquery.inputmask.bundle.min.js"></script>
+	<script src="assets/js/selectboxit/jquery.selectBoxIt.min.js"></script>
+	<script src="assets/js/bootstrap-colorpicker.min.js"></script>
+	<script src="assets/js/select2/select2.min.js"></script>
+	<script src="assets/js/bootstrap-datepicker.js"></script>
+	<script src="assets/js/bootstrap-switch.min.js"></script>
+	<script src="assets/js/jquery.multi-select.js"></script>
+	<script src="assets/js/neon-chat.js"></script>
+	<script src="assets/js/neon-custom.js"></script>
+	<script src="assets/js/neon-demo.js"></script>
+	<script src="assets/js/fileinput.js"></script>
+        
+        
+        <link rel="stylesheet" href="assets/js/select2/select2-bootstrap.css">
+	<link rel="stylesheet" href="assets/js/select2/select2.css">
+	<link rel="stylesheet" href="assets/js/selectboxit/jquery.selectBoxIt.css">
+	<link rel="stylesheet" href="assets/js/daterangepicker/daterangepicker-bs3.css">
+	<link rel="stylesheet" href="assets/js/icheck/skins/minimal/_all.css">
+	<link rel="stylesheet" href="assets/js/icheck/skins/square/_all.css">
+	<link rel="stylesheet" href="assets/js/icheck/skins/flat/_all.css">
+	<link rel="stylesheet" href="assets/js/icheck/skins/futurico/futurico.css">
+	<link rel="stylesheet" href="assets/js/icheck/skins/polaris/polaris.css">
+
+	<!-- Bottom Scripts -->
+	<script src="assets/js/gsap/main-gsap.js"></script>
+	<script src="assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/joinable.js"></script>
+	<script src="assets/js/resizeable.js"></script>
+	<script src="assets/js/neon-api.js"></script>
+	<script src="assets/js/select2/select2.min.js"></script>
+	<script src="assets/js/bootstrap-tagsinput.min.js"></script>
+	<script src="assets/js/typeahead.min.js"></script>
+	<script src="assets/js/selectboxit/jquery.selectBoxIt.min.js"></script>
+	<script src="assets/js/bootstrap-datepicker.js"></script>
+	<script src="assets/js/bootstrap-timepicker.min.js"></script>
+	<script src="assets/js/bootstrap-colorpicker.min.js"></script>
+	<script src="assets/js/daterangepicker/moment.min.js"></script>
+	<script src="assets/js/daterangepicker/daterangepicker.js"></script>
+	<script src="assets/js/jquery.multi-select.js"></script>
+	<script src="assets/js/icheck/icheck.min.js"></script>
+	<script src="assets/js/neon-chat.js"></script>
+	<script src="assets/js/neon-custom.js"></script>
+	<script src="assets/js/neon-demo.js"></script>
+
+        <script type="text/javascript" language="javascript" class="init">
+                 
+    
+    var contLin = 1;
+function agregar() {
+	var tr, td;
+
+	tr = document.all.example.insertRow();
+	td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name00" + contLin + "' placeholder='--'>";
+	td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name01" + contLin + "' placeholder='--'>";
+	td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name02" + contLin + "' placeholder='---'>";
+	td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name03" + contLin + "' placeholder='---'>";
+        td = tr.insertCell();	
+	td.innerHTML = "<input type='text' name='name04" + contLin + "' placeholder='---'>";
+        td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name05" + contLin + "' placeholder='---'>";
+        td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name06" + contLin + "' placeholder='---'>";
+        td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name07" + contLin + "' placeholder='---'>";
+        td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name08" + contLin + "' placeholder='---'>";
+	contLin++;
+}
+function calcular() {
+	var tr, td;
+
+	tr = document.all.example.insertRow();
+	td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='result1" + contLin + "' placeholder='--'>";
+	td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='result2" + contLin + "' placeholder='--'>";
+	td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='result3" + contLin + "' placeholder='---'>";
+	td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='result4" + contLin + "' placeholder='---'>";
+        td = tr.insertCell();	
+	td.innerHTML = "<input type='text' name='result5" + contLin + "' placeholder='---'>";
+        td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='result6" + contLin + "' placeholder='---'>";
+        td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='result7" + contLin + "' placeholder='---'>";
+        td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='result8" + contLin + "' placeholder='---'>";
+        td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='result9" + contLin + "' placeholder='---'>";
+	contLin++;
+}
+function borrarUltima() {
+	ultima = document.all.example.rows.length - 1;
+	document.all.example.deleteRow(ultima);
+	contLin--;
+}
+
+    var contLin2 = 1;
+function agregar2() {
+	var tr, td;
+
+	tr = document.all.example2.insertRow();
+        td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name00" + contLin2 + "' placeholder='---'>";
+	td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name01" + contLin2 + "' placeholder='---'>";
+	td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name02" + contLin2 + "' placeholder='---'>";
+	td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name03" + contLin2 + "' placeholder='---'>";
+        td = tr.insertCell();	
+	td.innerHTML = "<input type='text' name='name04" + contLin2 + "' placeholder='---'>";
+        td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name05" + contLin2 + "' placeholder='---'>";
+        td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name06" + contLin2 + "' placeholder='---'>";
+        td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name07" + contLin2 + "' placeholder='---'>";
+        td = tr.insertCell();
+	td.innerHTML = "<input type='text' name='name08" + contLin2 + "' placeholder='---'>";
+	contLin2++;
+}
+function borrarUltima2() {
+	ultima = document.all.example2.rows.length - 1;
+	document.all.example2.deleteRow(ultima);
+	contLin--;
+}
+    </script>
+</body>
+</html>

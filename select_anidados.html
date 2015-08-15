@@ -1,0 +1,64 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <script type="text/javascript">
+            
+function slctr(texto,valor){
+	this.texto = texto
+	this.valor = valor
+}
+var herramientas=new Array()
+	herramientas[0] = new slctr('- -Herramientas- -')
+	herramientas[1] = new slctr("Jardín")
+	herramientas[2] = new slctr("Fontanería")
+
+var muebles=new Array()
+	muebles[0] = new slctr('- -Muebles- -')
+	muebles[1] = new slctr("Salón")
+	muebles[2] = new slctr("Dormitorio")
+        
+var electro=new Array()
+	electro[0] = new slctr('- -Electro- -')
+	electro[1] = new slctr("Cocina")
+	electro[2] = new slctr("Oficina")
+
+function slctryole(cual,donde){
+	if(cual.selectedIndex != 0){
+		donde.length=0
+		cual = eval(cual.value)
+		for(m=0;m<cual.length;m++){
+			var nuevaOpcion = new Option(cual[m].texto);
+			donde.options[m] = nuevaOpcion;
+			if(cual[m].valor != null){
+				donde.options[m].value = cual[m].valor
+			}
+			else{
+				donde.options[m].value = cual[m].texto
+			}
+		}
+	}
+}
+</script>
+    </head>
+    <body>
+        <div>TODO write content</div>
+        <form name="form1" method="post" action="">
+	<select name="select" onchange="slctryole(this,this.form.select2)">
+		<option>- - Seleccionar - -</option>
+		<option value="herramientas">herramientas</option>
+		<option value="muebles">muebles</option>
+		<option value="electro">electro</option>
+	</select>
+	<select name="select2">
+		<option>- - - - - -</option>
+	</select>
+        </form>
+    </body>
+</html>
